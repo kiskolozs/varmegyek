@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Workshop') }}</title>
+    <title>{{ config('app.name', 'Vármegyék') }}</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
     <!-- Scripts -->
@@ -17,7 +17,7 @@
     <!--<script type="module" src="{{ asset('js/app.js') }}"></script>-->
     <script src="{{ asset('build/assets/app-c75e0372.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/workshop.js') }}"></script>
+    <script src="{{ asset('js/varmegye.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,7 +27,7 @@
     <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
     <!--<link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet">-->
     <link href="{{ asset('build/assets/app-041e359a.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('css/workshop.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/varmegye.css') }}" type="text/css" rel="stylesheet">
     <style type="text/css">
         i{
             font-size: 20px !important;
@@ -55,13 +55,7 @@
                                     Törzsadatok
                                 </a>-->
                                 <!--<ul class="navbar">-->
-                                    <li><a href="{{route('fuels')}}">Üzemanyagok</a></li>&nbsp;
-                                    <li><a href="{{route('cassises')}}">Karoszériák</a></li>&nbsp;
-                                    <li><a href="{{route('clients')}}">Ügyfelek</a></li>&nbsp;
-                                    <li><a href="{{route('manufacturers')}}">Gyártók</a></li>&nbsp;
-                                    <li><a href="{{route('types')}}">Típusok</a></li>&nbsp;
-                                    <li><a href="{{route('vehicles')}}">Járművek</a></li>&nbsp;
-
+                                    <li><a href="{{route('varmegyek')}}">Vármegyék</a></li>&nbsp;                          
                                 <!--</ul>-->
                             <!--</div>-->
                        </ul>
@@ -111,7 +105,7 @@
         </main>
 
         <footer class="text-center">
-            {{ config('app.name', 'Workshop') }} v{{ env('APP_VERSION') }} (PHP v{{ PHP_VERSION }})
+            {{ config('app.name', 'Vármegyék') }} v{{ env('APP_VERSION') }} (PHP v{{ PHP_VERSION }})
         </footer>
     </div>
 </body>

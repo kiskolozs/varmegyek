@@ -10,10 +10,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: inline-block; float:left">
-                            <strong>{{ __('Karosszéria') }}</strong>
+                            <strong>{{ __('Vármegye') }}</strong>
                         </div>
                         <div style="display: inline-block; float:right">
-                               <form method="post" action="{{route('searchCassises')}}" accept-charset="UTF-8">
+                               <form method="post" action="{{route('searchVarmegyek')}}" accept-charset="UTF-8">
                                 @csrf
                                 <input type="text" name="needle" placeholder="Keresés"><button class="btn" type="submit"><i class="fa fa-search"></i>Keres</button>
                             </form>
@@ -33,7 +33,7 @@
                                     <th>#</th>
                                     <th class="search-field">Megnevezés</th>
                                     <th>Művelet&nbsp;
-                                        <a href="{{route('createCassis')}}"><i class="fa fa-plus" title={{ __("ÚJ") }}>+</i></a>
+                                        <a href="{{route('createVarmegye')}}"><i class="fa fa-plus" title={{ __("ÚJ") }}>+</i></a>
                                     </th>
                                 </tr>
                             </thead>
@@ -44,11 +44,11 @@
                                     <td>{{$entity->name}}</td>
                                     <td style="display: flex">
 
-                                        <form method="post" action="{{ route('editCassis', $entity->id) }}">
+                                        <form method="post" action="{{ route('editVarmegye', $entity->id) }}">
                                             <button class="btn btn-sm" type="submit"><i class="fa fa-edit">Módosít</i></button>
                                            @csrf
                                         </form>
-                                        <form method="post" action="{{ route('deleteCassis', $entity->id) }}"><button class="btn btn-sm" type="submit"><i class="fa fa-trash">Töröl</i></button>
+                                        <form method="post" action="{{ route('deleteVarmegye', $entity->id) }}"><button class="btn btn-sm" type="submit"><i class="fa fa-trash">Töröl</i></button>
                                             @csrf
                                             @method('delete')
                                         </form>

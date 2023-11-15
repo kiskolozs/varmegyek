@@ -1,16 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Fuel;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FuelController extends Controller
 {
     public function index()
     {
-        return view('fuel/list', ['entities' =>
-            Fuel::where('is_active', true)->orderBy('name')->get()]);
+        $entities= Fuel::where('is_active',true)->orderBy('name')->get();
+        return response()->json([
+            'data' => $entities,
+            'message'=>'Ok',]
+            ,200);
     }
 
     public function create() {

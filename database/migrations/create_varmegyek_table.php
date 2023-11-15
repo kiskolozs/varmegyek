@@ -6,19 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    const TABLE_NAME = 'types';
+    const TABLE_NAME = 'varmegye';
     /**
      * Run the migrations.
      */
     public function up(): void
     {
         Schema::dropIfExists(self::TABLE_NAME);
-        
+
         Schema::create(self::TABLE_NAME, function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->integer('id_manufacturer')->index();
             $table->boolean('is_active')->default(true);
         });
     }

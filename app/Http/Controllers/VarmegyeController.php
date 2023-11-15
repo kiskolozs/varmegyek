@@ -3,31 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cassis;
+use App\Models\Varmegye;
 
-class CassisController extends Controller
+class VarmegyeController extends Controller
 {
     public function index()
     {
-        return view('cassis/list', ['entities' =>
-            Cassis::where('is_active', true)->orderBy('name')->get()]);
+        return view('varmegye/list', ['entities' =>
+            Varmegye::where('is_active', true)->orderBy('name')->get()]);
     }
 
     public function create() {
-        return view('cassis/create');
+        return view('varmegye/create');
     }
 
     public function edit($id) {
-        $entity = Cassis::find($id);
+        $entity = Varmegye::find($id);
 
-        return view('cassis/edit', ['entity' => $entity]);
+        return view('varmegye/edit', ['entity' => $entity]);
     }
 
     public function update(Request $request, $id)
     {
         if ($id) {
-            /** @var Cassis $entity */
-            $entity = Cassis::find($id);
+            /** @var Varmegye $entity */
+            $entity = Varmegye::find($id);
         }
         if (!$entity) {
             abort(404);
@@ -35,29 +35,29 @@ class CassisController extends Controller
         $entity = $this->setEntityData($entity, $request);
         $entity->update();
 
-        return redirect(route('cassises') . '#' . $entity->id);
+        return redirect(route('varmegyek') . '#' . $entity->id);
     }
 
     public function delete(Request $request, $id)
     {
-        /** @var Cassis $entity */
-        $entity = Cassis::find($id);
+        /** @var Varmegye $entity */
+        $entity = Varmegye::find($id);
         $entity->is_active = false;
         $entity->save();
 
-        return redirect(route('cassises'));
+        return redirect(route('varmegyek'));
     }
 
     public function save(Request $request)
     {
-        $entity = new Cassis();
+        $entity = new Varmegye();
         $entity = $this->setEntityData($entity, $request);
         $entity->save();
 
-        return redirect(route('cassises') . '#' . $entity->id);
+        return redirect(route('varmegyek') . '#' . $entity->id);
     }
 
-    private function setEntityData(Cassis $entity, Request $request): ?Cassis
+    private function setEntityData(Varmegye $entity, Request $request): ?Varmegye
     {
         $entity->name = $request->get('name');
 
@@ -66,7 +66,7 @@ class CassisController extends Controller
 
     private function getQuery()
     {
-        return Cassis::select('*');
+        return Varmegye::select('*');
     }
 
     public function search(Request $request) {
@@ -80,6 +80,6 @@ class CassisController extends Controller
             return view('404');
         }
 
-        return view('cassis/list', ['entities' => $entities]);
+        return view('varmegye/list', ['entities' => $entities]);
     }
 }
